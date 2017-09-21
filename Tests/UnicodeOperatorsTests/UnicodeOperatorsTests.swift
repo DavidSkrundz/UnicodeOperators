@@ -3,8 +3,8 @@
 //  UnicodeOperators
 //
 
-@testable import UnicodeOperators
 import XCTest
+@testable import UnicodeOperators
 
 class UnicodeOperatorsTests: XCTestCase {
 	func testLessThan() {
@@ -15,5 +15,5 @@ class UnicodeOperatorsTests: XCTestCase {
 	
 	static var allTests = [
 		("testLessThan", testLessThan),
-	]
+		]
 }

@@ -1,3 +1,4 @@
+// swift-tools-version:4.0
 //
 //  Package.swift
 //  UnicodeOperators
@@ -6,19 +7,22 @@
 import PackageDescription
 
 let package = Package(
-	name: "UnicodeOperators"
-)
-
-let staticLibrary = Product(
 	name: "UnicodeOperators",
-	type: .Library(.Static),
-	modules: ["UnicodeOperators"]
+	products: [
+		.library(
+			name: "UnicodeOperators",
+			type: .static,
+			targets: ["UnicodeOperators"]),
+		.library(
+			name: "UnicodeOperators",
+			type: .dynamic,
+			targets: ["UnicodeOperators"]),
+		],
+	targets: [
+		.target(
+			name: "UnicodeOperators"),
+		.testTarget(
+			name: "UnicodeOperatorsTests",
+			dependencies: ["UnicodeOperators"]),
+		]
 )
-let dynamicLibrary = Product(
-	name: "UnicodeOperators",
-	type: .Library(.Dynamic),
-	modules: ["UnicodeOperators"]
-)
-
-products.append(staticLibrary)
-products.append(dynamicLibrary)
